@@ -1,11 +1,20 @@
-
-use std::fs::OpenOptions;
-use std ::io::Write;
 fn main() {
+   //name vector 
+   let name = vec!["Mary","Sam","Sally","Greg","Ade","Mark","June","Ife"];
 
-    let mut file = OpenOptions::new().append(true).open("data.txt").expect("cannot open file");
-file.write_all("\n Hello Class".as_bytes()).expect("write failed ");
-file.write_all("\n This is the appendage to the document ."
-    .as_bytes()).expect("write failed ");
-println!("file append suucess");
+//age vector
+let age = vec![16,17,19,22,20,21,18,23];
+
+print!("\n Age allocation:\n");
+
+//loop to iterate elements in vector
+for i in 0..age.len()
+{
+//iterating through i on the vector 
+print!("{} is {} years old \n",name[i],age[i]);
 }
+
+
+
+}
+

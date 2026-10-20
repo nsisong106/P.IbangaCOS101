@@ -1,17 +1,17 @@
-use std::io::Write;
 fn main() {
 
 
-let announce ="Week 9 - Rust File Input & Output\n" ;
- let dept ="Department of Computer Science ";
+   //using Vec::new()
+let v : Vec<i64> = Vec::new();
+
+//printing the size of vector 
+println!("\n The length of Vec::new is :{}",v.len());
+
+//using macro
+let v = vec!["Grace","Effiong","Basil","Kareem","Susan"];
 
 
-let mut file = std::fs::File::create("data.txt").expect("create failed");
-file.write_all("Welcome to Rust Programming\n"
-    .as_bytes()).expect("write failed");
- file.write_all(announce.as_bytes()).expect("write failed");
 
- file.write_all(dept.as_bytes()).expect("write failed");
-println!("\n Data written to file ."); 
-
+//printing the size of vector
+println!("\n The length of vec nacro is :{}",v.len());
 }
