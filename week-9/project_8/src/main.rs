@@ -1,26 +1,17 @@
- use std::io::Write;
+use std::io::Write;
+use std::fs::File;
+fn main() {
+   let lager = ["33 Export","Desperados","Goldberg","Gulder","Heineken","Star"];
+   let stout = ["Legend","Turbo King","Williams","","",""];
+   let non_alcoholic = ["Maltina","Amstel Malta","Malta Gold","Fayrouz","",""];
 
- fn main() {
-
-    let header =" Lager      , Stout     , Non-Alcoholic\n";
-    let data1 = "33 Export   , Legend    , Maltina      \n";
-    let data2 = " Desperados ,Turbo King ,Amstel Malta  \n";
-    let data3 = " Goldberg   , Williams  ,Malta Gold    \n";
-    let data4 = "  Gulder    ,           , Fayrouz      \n";
-    let data5 = " Heineken   ,           ,              \n";
-    let data6 = "  Star      ,           ,              \n";
+let mut file = File::create("drink.txt").expect("Could not create file");
+writeln!(file,"{:<15}{:<15}{:<15}","Lager", "Stout", "Non-Alcoholic").expect("Could not write to file");
 
 
-let mut file = std::fs::File::create("Nigerian Breweries.csv").expect("create failed");
-file.write_all(header.as_bytes()).expect("write failed");
-file.write_all(data1.as_bytes()).expect("write failed");
-file.write_all(data2.as_bytes()).expect("write failed");
-file.write_all(data3.as_bytes()).expect("write failed");
-file.write_all(data4.as_bytes()).expect("write failed");
-file.write_all(data6.as_bytes()).expect("write failed");
-file.write_all(data5.as_bytes()).expect("write failed");
+for i in 0..6{
+    writeln!(file,"{:<15}{:<15}{:<15}",lager[i],stout[i] ,non_alcoholic[i]).expect("Could not write to file");
 
-println!("\n Data written to file.");
-
-
+}
+ println!("File created succesfully!");
 }
